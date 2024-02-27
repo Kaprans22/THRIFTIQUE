@@ -1,25 +1,66 @@
-<%= form_with(model: @product, local: true) do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<div class="container">
+  <h1 class="mb-4 d-flex">Sell an item</h1>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+  <%= form_with(model: @product, local: true) do |form| %>
+    <label for="name" class="web_ui__Input__wide">
+      <div class="field m-3 string required name">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+    </label>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, step: 0.01 %>
-  </div>
+    <div class="field m-3 string required name">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+    <div class="field m-3 string required name">
+      <%= form.label :price %>
+      <%= form.number_field :price, step: 0.1 %>
+    </div>
+    <div class="field m-3 string required name">
+      <%= form.label :image %>
+      <%= form.file_field :image %>
+    </div>
+    <div class="actions m-3 string required name">
+      <%= form.submit %>
+    </div>
+    <%= link_to "< Back", products_path %>
+  <% end %>
+</div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
+<%#=
+<div class="container">
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  <form class='simple_form new_list' id="new_list" novalidate="novalidate" enctype="multipart/form-data" action="/lists" accept-charset="UTF-8" method="post">
+    <input type="hidden" name="authenticity_token" autocomplete="off">
+    <div class="mb-3 string required name">
+      <label class="form-label string required" for="name"> Name
+        <abbr title="required">*</abbr>
+      </label>
+      <input class="form-control string required" placeholder="Name" type="text" name="product[name]" id="product_name">
+    </div>
+    <div class="mb-3 string required description">
+      <label class="form-label string required" for="description"> Description
+        <abbr title="required">*</abbr>
+      </label>
+      <input class="form-control string required" placeholder="Tell us about your product" type="text" name="product[description]" id="product_description">
+    </div>
+    <div class="mb-3 string required float">
+      <label class="form-label float required" for="price"> Price
+        <abbr title="required">*</abbr>
+      </label>
+      <input class="form-control price required" placeholder="" type="text" name="product[price]" id="product_price">
+    </div>
+    <div class="mb-3 file required list_photo">
+      <label class="form-label file optional" for="photo"> Photo
+        <abbr title="required">*</abbr>
+      </label>
+      <input class="form-control file optional" type="file" name="list[photo]" id="list_photo">
+    </div>
+    <button type="submit" value="create list" class="btn btn-outline-success" data-disable-with="Create List">
+      Create list
+    </button>
+  </form>
+
+</div>
+ %>

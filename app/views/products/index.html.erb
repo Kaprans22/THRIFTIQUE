@@ -1,13 +1,14 @@
-<h1>Products</h1>
+<div class="container mt-4">
+  <h1>Products</h1>
+  <%= link_to 'New Product', new_product_path %>
 
-<%= link_to 'New Product', new_product_path %>
+  <ul>
+    <% @products.each do |product| %>
+      <li>
+        <%= link_to product.name, product %>
+      </li>
+    <% end %>
+  </ul>
 
-<ul>
-  <% @products.each do |product| %>
-    <li>
-      <%= link_to product.name, product %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to 'Homepage', root_path %>
+  <%= link_to 'Homepage', root_path %>
+</div>
