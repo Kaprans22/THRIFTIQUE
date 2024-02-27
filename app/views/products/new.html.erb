@@ -1,23 +1,27 @@
 <div class="container">
-  <h1 class="mb-4">New Product</h1>
+  <h1 class="mb-4 d-flex">Sell an item</h1>
+
   <%= form_with(model: @product, local: true) do |form| %>
-    <div class="field mb-3 string required name">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
-    <div class="field mb-3 string required name">
+    <label for="name" class="web_ui__Input__wide">
+      <div class="field m-3 string required name">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+    </label>
+
+    <div class="field m-3 string required name">
       <%= form.label :description %>
       <%= form.text_area :description %>
     </div>
-    <div class="field mb-3 string required name">
+    <div class="field m-3 string required name">
       <%= form.label :price %>
       <%= form.number_field :price, step: 0.1 %>
     </div>
-    <div class="field mb-3 string required name">
+    <div class="field m-3 string required name">
       <%= form.label :image %>
       <%= form.file_field :image %>
     </div>
-    <div class="actions mb-3 string required name">
+    <div class="actions m-3 string required name">
       <%= form.submit %>
     </div>
     <%= link_to "< Back", products_path %>
