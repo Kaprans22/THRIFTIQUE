@@ -79,6 +79,4 @@ production:
 #
 production:
   <<: *default
-  database: thriftique_production
-  username: thriftique
-  password: <%= ENV["THRIFTIQUE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
