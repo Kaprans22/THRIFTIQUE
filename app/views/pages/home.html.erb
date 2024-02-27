@@ -8,7 +8,9 @@
   <% @products.each do |product| %>
     <div class="product">
       <%= link_to product.name, product_path(product) %> - <%= number_to_currency(product.price) %>
-      <%= image_tag product.image, class: 'product-image' if product.image.attached? %>
+      <% if product.image.attached? %>
+      <%= image_tag product.image, class: 'product-image' %>
+    <% end %>
       <br>
     </div>
   <% end %>
