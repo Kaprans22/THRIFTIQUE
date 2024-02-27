@@ -9,7 +9,7 @@
 #   end
 # db/seeds.rb
 
-#users
+# users
 Product.destroy_all
 User.destroy_all
 user1 = User.create!(
