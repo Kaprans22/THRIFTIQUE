@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :update, :edit, :destroy]
+  before_action :set_product, only: %i[show update edit destroy]
   def index
     @products = Product.all
   end
@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to @product, notice: 'Product was successfully created.'
     else
-      render :new
+      render :new, notice: 'Product was not created.'
     end
   end
 
@@ -42,6 +42,7 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :price, :image)
   end
+
   def set_product
     @product = Product.find(params[:id])
   end
