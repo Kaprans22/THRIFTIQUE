@@ -2,13 +2,17 @@
   <h1>Products</h1>
   <%= link_to 'New Product', new_product_path %>
 
-  <ul>
-    <% @products.each do |product| %>
-      <li>
-        <%= link_to product.name, product %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="card-container">
+    <ul>
+      <% @products.each do |product| %>
+        <div class="card">
+          <li>
+            <%= link_to product.name, product %>
+          </li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
 
   <%= link_to 'Homepage', root_path %>
 </div>
