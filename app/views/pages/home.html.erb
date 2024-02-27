@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome to our store!</h1>
+
+<p>
+  <%= link_to 'View Products', products_path %>
+</p>
+
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <%= link_to product.name, product_path(product) %> - <%= number_to_currency(product.price) %>
+    </li>
+  <% end %>
+</ul>
+
+<p>
+  <%= link_to 'Add a New Product', new_product_path %>
+</p>
