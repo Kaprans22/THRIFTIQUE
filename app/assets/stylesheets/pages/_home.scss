@@ -1,1 +1,16 @@
-// Specific CSS for your home-page
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product {
+  flex-basis: calc(25% - 20px);  /* 100% divided by 4 (for 4 items in a row), minus a little for margin */
+  margin: 10px;  /* a little margin around each item */
+  box-sizing: border-box;  /* so the padding and border are included in the item's width */
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+}

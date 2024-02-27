@@ -1,2 +1,19 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome to our store!</h1>
+
+<p>
+  <%= link_to 'View Products', products_path %>
+</p>
+
+<div class="product-list">
+  <% @products.each do |product| %>
+    <div class="product">
+      <%= link_to product.name, product_path(product) %> - <%= number_to_currency(product.price) %>
+      <%= image_tag product.image, class: 'product-image' if product.image.attached? %>
+      <br>
+    </div>
+  <% end %>
+</div>
+
+<p>
+  <%= link_to 'Add a New Product', new_product_path %>
+</p>
