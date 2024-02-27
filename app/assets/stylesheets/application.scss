@@ -10,3 +10,21 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "bootstrap";
+
+
+a {
+  text-decoration: none;
+  color: $black;
+  list-style-type: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  @include dm-sans-font;
+  background-color: $white;
+  color: $black;
+}
