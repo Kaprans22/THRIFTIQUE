@@ -28,17 +28,17 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.new(product_params)
 
     if @product.save
-      redirect_to @product, notice: 'Product was successfully created.'
+      redirect_to @product
     else
-      render :new, notice: 'Product was not created.'
+      Rails.logger.info @product.errors.full_messages.join(", ")
+      render :new, status: 422
     end
   end
 
   private
-
   def product_params
     params.require(:product).permit(:name, :description, :price, :image)
   end
