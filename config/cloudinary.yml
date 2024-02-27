@@ -1,0 +1,20 @@
+development:
+  cloud_name: "dejebunbr"
+  api_key: "329814522528547"
+  api_secret: "RQBruhXoPkEDL3Q35L3e0IvSNKI"
+  secure: true
+  cdn_subdomain: true
+
+test:
+  cloud_name: "dejebunbr"
+  api_key: "329814522528547"
+  api_secret: "RQBruhXoPkEDL3Q35L3e0IvSNKI"
+  secure: true
+  cdn_subdomain: true
+
+production:
+  cloud_name: "dejebunbr"
+  api_key: "329814522528547"
+  api_secret: "RQBruhXoPkEDL3Q35L3e0IvSNKI"
+  secure: true
+  cdn_subdomain: true
