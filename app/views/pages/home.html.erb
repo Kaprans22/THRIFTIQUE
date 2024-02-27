@@ -4,13 +4,15 @@
   <%= link_to 'View Products', products_path %>
 </p>
 
-<ul>
+<div class="product-list">
   <% @products.each do |product| %>
-    <li>
+    <div class="product">
       <%= link_to product.name, product_path(product) %> - <%= number_to_currency(product.price) %>
-    </li>
+      <%= image_tag product.image, class: 'product-image' if product.image.attached? %>
+      <br>
+    </div>
   <% end %>
-</ul>
+</div>
 
 <p>
   <%= link_to 'Add a New Product', new_product_path %>

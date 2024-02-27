@@ -3,6 +3,7 @@
 
 <p><%= @product.description %></p>
 <p><%= number_to_currency(@product.price) %></p>
+<%= image_tag @product.image if @product.image.attached? %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
