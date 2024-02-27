@@ -10,8 +10,9 @@
 # db/seeds.rb
 
 #users
-
-User.create!(
+Product.destroy_all
+User.destroy_all
+user1 = User.create!(
   first_name: 'John',
   last_name: 'Deer',
   address: 'Grove St',
@@ -19,7 +20,7 @@ User.create!(
   password: 'password'
 )
 
-User.create!(
+user2 = User.create!(
   first_name: 'Julian',
   last_name: 'Smith',
   address: 'Sunnyvale Trailer Park',
@@ -27,7 +28,7 @@ User.create!(
   password: 'rumandcoke'
 )
 
-User.create!(
+user3 = User.create!(
   first_name: 'Ricky',
   last_name: 'Lahey',
   address: 'Trailer 2, Sunnyvale',
@@ -35,7 +36,7 @@ User.create!(
   password: 'conky123'
 )
 
-User.create!(
+user4 = User.create!(
   first_name: 'Bubbles',
   last_name: 'McLovin',
   address: 'Kittyland',
@@ -43,7 +44,7 @@ User.create!(
   password: 'kitties4life'
 )
 
-User.create!(
+user5 = User.create!(
   first_name: 'Jim',
   last_name: 'Lahey',
   address: 'Supervisor Office, Sunnyvale',
@@ -51,14 +52,14 @@ User.create!(
   password: 'liquoronmypiss'
 )
 
-User.create!(
+user6 = User.create!(
   first_name: 'Randy',
   last_name: 'Bobandy',
   address: 'Trailer 6, Sunnyvale',
   email: 'randy@example.com',
   password: 'cheeseburgers'
 )
-User.create!(
+user7 = User.create!(
   first_name: 'Trevor',
   last_name: 'Corry',
   address: '123 Julian St',
@@ -68,48 +69,48 @@ User.create!(
 
 # products
 
-Product.create!(
-  user_id: 1,
+product1 = Product.create!(
+  user: user1,
   name: 'Product 1',
   price: 50,
   status: true,
   description: 'Description of Product 1'
 )
 
-Product.create!(
-  user_id: 2,
+product2 = Product.create!(
+  user: user2,
   name: 'Laheys Liquor',
   price: 20,
   status: true,
   description: "A bottle of Mr. Lahey's finest liquor."
 )
 
-Product.create!(
-  user_id: 1,
+product3 = Product.create!(
+  user: user1,
   name: 'Sunnyvale Trailer Park T-Shirt',
   price: 15,
   status: true,
   description: 'Official Sunnyvale Trailer Park merchandise.'
 )
 
-Product.create!(
-  user_id: 5,
+product4 = Product.create!(
+  user: user5,
   name: 'Rickys Coins',
   price: 10,
   status: true,
   description: "Authentic coins made by Ricky. Don't ask how."
 )
 
-Product.create!(
-  user_id: 4,
+product5 = Product.create!(
+  user: user4,
   name: 'Bubbles Kitties Calendar',
   price: 12,
   status: true,
   description: "A calendar featuring Bubbles' beloved kitties."
 )
 
-Product.create!(
-  user_id: 2,
+product6 = Product.create!(
+  user: user2,
   name: 'Julians Rum and Coke Kit',
   price: 30,
   status: true,
@@ -119,7 +120,7 @@ Product.create!(
 #transactions
 
 Transaction.create!(
-  product_id: Product.id,
-  user_id: User.id,
+  product: product5,
+  user: user1,
   pick_up_date: Date.today.to_s
 )
