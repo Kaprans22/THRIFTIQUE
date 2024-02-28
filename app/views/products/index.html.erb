@@ -2,23 +2,6 @@
   <h1>Products</h1>
   <%= link_to 'Add a new product here', new_product_path %>
 
-<<<<<<< HEAD
-  <div>
-    <ul class="card-container row">
-      <% @products.each do |product| %>
-        <div class="card col-3">
-          <li class="">
-
-            <%= link_to product.name, product %>
-            <img src="<% product.image %>" alt="product.name">
-          </li>
-        </div>
-      <% end %>
-    </ul>
-  </div>
-
-  <%= link_to 'Homepage', root_path %>
-=======
   <%= form_with(url: products_path, method: :get, local: true) do %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag 'Search', name: nil %>
@@ -37,5 +20,4 @@
 </div>
 <br>
   <%= link_to 'Go back!', root_path, class: 'home-bttn' %>
->>>>>>> master
 </div>
