@@ -10,8 +10,7 @@
 # db/seeds.rb
 require "open-uri"
 
-#users
-Transaction.destroy_all
+# users
 Product.destroy_all
 User.destroy_all
 
