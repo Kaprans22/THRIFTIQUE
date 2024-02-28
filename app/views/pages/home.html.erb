@@ -1,21 +1,23 @@
 <h1>Welcome to our store!</h1>
 
-<p>
-  <%= link_to 'Search Products', products_path, class: 'search-bttn' %>
-</p>
+
 
 <div class="product-list">
   <% @products.each do |product| %>
-    <div class="product-home-card">
-      <%= link_to product.name, product_path(product) %> - <%= number_to_currency(product.price) %>
+  <%= link_to product_path(product) do %>
+    <div class="card-product my-2 shadow-sm p-3 bg-white rounded">
       <% if product.photo.attached? %>
-      <%= image_tag product.photo, class: 'product-image' %>
-    <% end %>
-      <br>
+        <%= image_tag product.photo, class: 'product-image rounded-top' %>
+      <% end %>
+      <div class="card-text d-flex flex-column align-items-end">
+      <strong><%= product.name %></strong>
+      <%= number_to_currency(product.price) %>
+      </div>
     </div>
+  <% end %>
   <% end %>
 </div>
 <br>
 <p>
-  Want to sell something? <%= link_to 'Add your product', new_product_path, class: 'gray-oval-button' %>
+  Want to sell something? <%= link_to 'Add your product', new_product_path, class:'btn btn-outline-secondary-color mx-2 my-2 my-sm-0' %>
 </p>
