@@ -1,6 +1,8 @@
 class TransactionsController < ApplicationController
   def show
     @transaction = Transaction.find(params[:id])
+    @product = @transaction.product
+    @user = @transaction.user
   end
 
   def create
