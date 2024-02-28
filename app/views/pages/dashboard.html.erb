@@ -54,8 +54,8 @@
                   Price:
                   <%= item.price %> €
                 </p>
-                <% if item.image.attached? %>
-                  <%= image_tag(item.image, class: "item_avatar") %>
+                <% if item.photo.attached? %>
+                  <%= image_tag(item.photo, class: "item_avatar") %>
                 <% end %>
               </li>
             <% end %>
