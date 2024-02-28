@@ -6,6 +6,18 @@
   <title>User Dashboard</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .item_box {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .list-group-item {
+      flex: 0 0 50%;
+    }
+    .card-body-item {
+      overflow-x: hidden; /* Hide horizontal overflow */
+    }
+  </style>
 </head>
 <body>
 
@@ -16,7 +28,6 @@
         <div class="card-body">
           <img src="https://i.redd.it/ygdbmq38vh5b1.jpg" alt="User Picture" class="img-fluid mb-3">
           <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
-          <h5 class="card-title">Udonis Haslem</h5>
           <p class="card-text"><strong>Email:</strong> <%= @user.email %></p>
           <p class="card-text"><strong>Address:</strong> <%= @user.address %></p>
         </div>
@@ -24,22 +35,36 @@
     </div>
 
     <div class="col-md-8">
-      <div class="card">
         <div class="card-header bg-dark text-white">
-          Listed Items
+          Your listed items
         </div>
-        <div class="card-body">
-          <ul class="list-group">
+        <div class="card-body-item" style="display: flex;">
+          <ul class="list-group-cl">
             <% @items.each do |item| %>
-              <li class="list-group-item"><%= item.name %></li>
+              <li class="list-group-item">
+                <%= link_to item.name, product_path(item), class: "item_button" %>
+                <p>
+                  <% if item.status %>
+                    Purchased
+                  <% else %>
+                    Still available for purchasing
+                  <% end %>
+                </p>
+                <p>
+                  Price:
+                  <%= item.price %> €
+                </p>
+                <% if item.image.attached? %>
+                  <%= image_tag(item.image, class: "item_avatar") %>
+                <% end %>
+              </li>
             <% end %>
           </ul>
         </div>
       </div>
-    </div>
   </div>
 </div>
-
+<br>
 <!-- Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
