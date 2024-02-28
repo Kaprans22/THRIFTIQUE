@@ -1,7 +1,7 @@
 <h1>Welcome to our store!</h1>
 
 <p>
-  <%= link_to 'View Products', products_path %>
+  <%= link_to 'Search Products', products_path, class: 'search-bttn' %>
 </p>
 
 <div class="product-list">
@@ -15,7 +15,14 @@
     </div>
   <% end %>
 </div>
+<<<<<<< HEAD
 
 <%# <p>
   <%= link_to 'Add a New Product', new_product_path >
 </p> %>
+=======
+<br>
+<p>
+  Want to sell something? <%= link_to 'Add your product', new_product_path, class: 'gray-oval-button' %>
+</p>
+>>>>>>> master

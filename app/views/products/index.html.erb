@@ -1,7 +1,8 @@
 <div class="container mt-4">
   <h1>Products</h1>
-  <%= link_to 'New Product', new_product_path %>
+  <%= link_to 'Add a new product here', new_product_path %>
 
+<<<<<<< HEAD
   <div>
     <ul class="card-container row">
       <% @products.each do |product| %>
@@ -17,4 +18,24 @@
   </div>
 
   <%= link_to 'Homepage', root_path %>
+=======
+  <%= form_with(url: products_path, method: :get, local: true) do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag 'Search', name: nil %>
+  <% end %>
+
+<div class="product-list">
+  <% @products.each do |product| %>
+    <div class="product">
+      <%= link_to product.name, product_path(product) %> - <%= number_to_currency(product.price) %>
+      <% if product.image.attached? %>
+      <%= image_tag product.image, class: 'product-image' %>
+    <% end %>
+      <br>
+    </div>
+  <% end %>
+</div>
+<br>
+  <%= link_to 'Go back!', root_path, class: 'home-bttn' %>
+>>>>>>> master
 </div>
