@@ -10,12 +10,16 @@
       <div class="card-body">
         <h5 class="card-title"><%= number_to_currency(@product.price) %></h5>
         <hr>
+        <!-- Form submit -->
         <p>Brand: <%= @product.brand%></p>
         <p>Condition: <%=@product.condition%></p>
         <p>Location: <%=@product.location%></p>
         <p>Listed by: <%= @product.user.first_name %> <%= @product.user.last_name %></p>
         <div class="d-grid gap-2" role="group" aria-label="Product Actions">
-          <a href="#" class="btn btn-primary">Buy Now</a>
+          <%= link_to 'Buy Now', transactions_path, method: :post, class: 'btn btn-primary' %>
+          <%= form_with(model: @transaction, local: true, multipart: true) do |form| %>
+            <%= form.submit %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -31,3 +35,4 @@
     <%= link_to 'Back', products_path, class: "btn btn-secondary btn-block my-2" %>
   </div>
 </div>
+```
