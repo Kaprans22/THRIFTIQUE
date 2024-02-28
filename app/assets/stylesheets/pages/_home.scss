@@ -15,23 +15,7 @@
   width: 300px;
   height: 400px;
 }
-.gray-oval-button {
-  display: inline-block;
-  padding: 5px 5px;
-  background-color: gray;
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-}
-.search-bttn{
-  display: inline-block;
-  padding: 5px 5px;
-  background-color: gray;
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-}
-.home-bttn{
+.gray-oval-button, .home-bttn, .search-bttn {
   display: inline-block;
   padding: 5px 5px;
   background-color: gray;
