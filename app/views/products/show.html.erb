@@ -1,9 +1,11 @@
 <!-- app/views/products/show.html.erb -->
 <h1><%= @product.name %></h1>
 
-<p><%= @product.description %></p>
-<p><%= number_to_currency(@product.price) %></p>
-<%= image_tag @product.image if @product.image.attached? %>
+<% if @product.image.attached? %>
+  <%= image_tag @product.image, class: 'product-image' %>
+<% end %>
+<br>
+
 
 <%= link_to 'Delete', product_path(@product), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> |
 <%= link_to 'Edit', edit_product_path(@product) %> |
