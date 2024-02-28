@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @transaction = Transaction.new
   end
 
   def destroy

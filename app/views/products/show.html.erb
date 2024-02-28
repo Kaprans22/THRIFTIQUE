@@ -12,13 +12,17 @@
         <div class="card-info mt-5">
         <h5 class="card-title"><%= number_to_currency(@product.price) %></h5>
         <hr>
+        <!-- Form submit -->
         <p>Brand: <%= @product.brand%></p>
         <p>Condition: <%=@product.condition%></p>
         <p>Location: <%=@product.location%></p>
         <p>Listed by: <%= @product.user.first_name %> <%= @product.user.last_name %></p>
         </div>
+          <%= simple_form_for([@product, @transaction]) do |form| %>
+
         <div class="d-grid gap-2 mb-3" role="group" aria-label="Product Actions">
-          <a href="#" class="btn btn-primary">Buy Now</a>
+            <%= form.submit "Buy Now", class: "btn btn-primary" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -32,3 +36,11 @@
   <div class="col-md-8 back-button" style="padding-left: 220px;">
     <%= link_to 'Back', products_path, class: "btn btn-secondary btn-block my-2" %>
   </div>
+
+   <div class="d-grid gap-2" role="group" aria-label="Product Actions">
+      <%# <%= link_to 'Buy Now', transactions_path, method: :post, class: 'btn btn-primary' %>
+      <%= simple_form_for([@product, @transaction]) do |form| %>
+
+        <%= form.submit %>
+      <% end %>
+    </div>
