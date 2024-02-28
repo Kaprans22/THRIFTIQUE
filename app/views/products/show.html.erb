@@ -36,11 +36,4 @@
   <div class="col-md-8 back-button" style="padding-left: 220px;">
     <%= link_to 'Back', products_path, class: "btn btn-secondary btn-block my-2" %>
   </div>
-
-   <div class="d-grid gap-2" role="group" aria-label="Product Actions">
-      <%# <%= link_to 'Buy Now', transactions_path, method: :post, class: 'btn btn-primary' %>
-      <%= simple_form_for([@product, @transaction]) do |form| %>
-
-        <%= form.submit %>
-      <% end %>
-    </div>
+</div>
