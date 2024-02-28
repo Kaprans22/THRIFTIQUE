@@ -7,4 +7,10 @@ class PagesController < ApplicationController
   def index
     @products = Product.all
   end
+
+  def dashboard
+    @user         = current_user
+    @items        = @user.products
+    @transactions = @user.transactions
+  end
 end

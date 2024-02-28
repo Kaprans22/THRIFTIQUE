@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   resources :users do
     get 'dashboard', on: :member
   end
-  resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+
+  get 'dashboard', to: 'pages#dashboard'
+  resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :transactions, only: [:create]
+  end
   resources :users, only: [:show, :edit, :update, :create, :new]
-  resources :transactions, only: [:show, :create, :new]
+  resources :transactions, only: [:show]
   # Defines the root path route ("/")
   # root "posts#index"
 end
