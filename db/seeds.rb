@@ -10,8 +10,7 @@
 # db/seeds.rb
 require "open-uri"
 
-#users
-Transaction.destroy_all
+# users
 Product.destroy_all
 User.destroy_all
 
@@ -84,7 +83,10 @@ product1 = Product.new(
   user: user1,
   name: 'Product 1',
   price: 50,
-  status: true,
+  status: false,
+  brand: 'Hollister',
+  condition: 'As new',
+  location: 'Amsterdam, The Netherlands',
   description: 'Description of Product 1')
 product1.photo.attach(io: file, filename: "nes.png")
 product1.save
@@ -94,7 +96,10 @@ product2 = Product.new(
   user: user2,
   name: 'Laheys Liquor',
   price: 20,
-  status: true,
+  status: false,
+  brand: 'Mr. Lahey',
+  condition: 'As new',
+  location: 'Roma,Italy',
   description: "A bottle of Mr. Lahey's finest liquor.")
 
 product2.photo.attach(io: file2, filename: "nes.png")
@@ -105,7 +110,10 @@ product3 = Product.new(
   user: user1,
   name: 'Sunnyvale Trailer Park T-Shirt',
   price: 15,
-  status: true,
+  status: false,
+  brand: 'Nike',
+  condition: 'As new',
+  location: 'Groningen, The Netherlands',
   description: 'Official Sunnyvale Trailer Park merchandise.')
 
 product3.photo.attach(io: file3, filename: "nes.png")
@@ -116,7 +124,10 @@ product4 = Product.new(
   user: user5,
   name: 'Rickys Coins',
   price: 10,
-  status: true,
+  status: false,
+  brand: 'stradivaruis',
+  condition: 'worn out',
+  location: 'Paris, France',
   description: "Authentic coins made by Ricky. Don't ask how."
 )
 product4.photo.attach(io: file4, filename: "nes.png")
@@ -127,7 +138,10 @@ product5 = Product.new(
   user: user4,
   name: 'Bubbles Kitties Calendar',
   price: 12,
-  status: true,
+  status: false,
+  brand: 'Hollister',
+  condition: 'second hand',
+  location: 'Rotterdam, The Netherlands',
   description: "A calendar featuring Bubbles' beloved kitties."
 )
 product5.photo.attach(io: file5, filename: "nes.png")
@@ -138,7 +152,10 @@ product6 = Product.new(
   user: user2,
   name: 'Julians Rum and Coke Kit',
   price: 30,
-  status: true,
+  status: false,
+  brand: 'Zara',
+  condition: 'As new',
+  location: 'Amsterdam, The Netherlands',
   description: 'Everything you need to mix Julian’s signature drink.'
 )
 product6.photo.attach(io: file6, filename: "nes.png")
