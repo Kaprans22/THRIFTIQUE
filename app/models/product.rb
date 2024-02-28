@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_one_attached :photo
+  has_one_attached :image
   belongs_to :user
 
   validates :name, presence: true
