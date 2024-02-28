@@ -1,14 +1,23 @@
 <div class="container mt-4">
   <h1>Products</h1>
-  <%= link_to 'New Product', new_product_path %>
+  <%= link_to 'Add a new product here', new_product_path %>
 
-  <ul>
-    <% @products.each do |product| %>
-      <li>
-        <%= link_to product.name, product %>
-      </li>
+  <%= form_with(url: products_path, method: :get, local: true) do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag 'Search', name: nil %>
+  <% end %>
+
+<div class="product-list">
+  <% @products.each do |product| %>
+    <div class="product">
+      <%= link_to product.name, product_path(product) %> - <%= number_to_currency(product.price) %>
+      <% if product.image.attached? %>
+      <%= image_tag product.image, class: 'product-image' %>
     <% end %>
-  </ul>
-
-  <%= link_to 'Homepage', root_path %>
+      <br>
+    </div>
+  <% end %>
+</div>
+<br>
+  <%= link_to 'Go back!', root_path, class: 'home-bttn' %>
 </div>
