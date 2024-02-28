@@ -6,7 +6,7 @@
 
 <div class="product-list">
   <% @products.each do |product| %>
-    <div class="product">
+    <div class="product-home-card">
       <%= link_to product.name, product_path(product) %> - <%= number_to_currency(product.price) %>
       <%= image_tag product.image, class: 'product-image' if product.image.attached? %>
       <br>
