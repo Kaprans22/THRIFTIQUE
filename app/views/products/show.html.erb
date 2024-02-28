@@ -1,12 +1,37 @@
 <!-- app/views/products/show.html.erb -->
-<h1><%= @product.name %></h1>
-
-<% if @product.image.attached? %>
-  <%= image_tag @product.image, class: 'product-image' %>
-<% end %>
-<br>
-
-
-<%= link_to 'Delete', product_path(@product), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> |
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class="row">
+  <div class="col-md-8">
+    <h1><%= @product.name %></h1>
+    <p><%= @product.description %></p>
+    <%= image_tag @product.image, class: "product-image"  if @product.image.attached? %>
+  </div>
+  <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= number_to_currency(@product.price) %></h5>
+        <hr>
+        <p>Brand: *need to add to db*</p>
+        <p>Condition: *need to add to db*</p>
+        <p>Location: *need to add to db*</p>
+        <p>Listed by: <%= @product.user %></p>
+        <div class="d-grid gap-2" role="group" aria-label="Product Actions">
+          <a href="#" class="btn btn-primary">Buy Now</a>
+          <a href="#" class="btn btn-secondary">Make an Offer</a>
+          <a href="#" class="btn btn-outline-secondary">Add to Favorites</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-md-8">
+    <!-- Add any additional content here if needed -->
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-md-8">
+    <%= link_to 'Delete', product_path(@product), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-block" %>
+    <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-primary btn-block mt-2" %>
+    <%= link_to 'Back', products_path, class: "btn btn-secondary btn-block mt-2" %>
+  </div>
+</div>
