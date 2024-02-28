@@ -1,12 +1,18 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-0 border-bottom">
   <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand " do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag "Thriftique.png" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+     <form class="form-inline d-flex">
+    <input class="form-control bg-white col-md-4" type="search" placeholder="Search" aria-label="Search">
+     <%= link_to products_path do%>
+    <button class="btn btn-outline-secondary-color mx-2 my-2 my-sm-0" type="submit">Search</button>
+    <% end %>
+  </form>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
