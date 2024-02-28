@@ -1,3 +1,46 @@
-<!-- app/views/users/dashboard.html.erb -->
-<h1><%= @user.first_name %> <%= @user.last_name %>'s Dashboard</h1>
-<!-- Display user data here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <img src="https://i.redd.it/ygdbmq38vh5b1.jpg" alt="User Picture" class="img-fluid mb-3">
+          <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
+          <h5 class="card-title">Udonis Haslem</h5>
+          <p class="card-text"><strong>Email:</strong> <%= @user.email %></p>
+          <p class="card-text"><strong>Address:</strong> <%= @user.address %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          Listed Items
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <% @items.each do |item| %>
+              <li class="list-group-item"><%= item.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

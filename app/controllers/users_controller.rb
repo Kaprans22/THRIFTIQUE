@@ -15,5 +15,6 @@ class UsersController < ApplicationController
   end
   def dashboard
     @user = User.find(params[:id])
+    @items = @user.products
   end
 end

@@ -8,10 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # db/seeds.rb
+require "open-uri"
 
 # users
 Product.destroy_all
 User.destroy_all
+
 user1 = User.create!(
   first_name: 'John',
   last_name: 'Deer',
@@ -66,56 +68,80 @@ user7 = User.create!(
   email: 'TandC@example.com',
   password: 'JulianGOAT'
 )
+user8 = User.create!(
+  first_name: 'Test',
+  last_name: 'Test',
+  address: 'testtest',
+  email: 'test@test.com',
+  password: 'testtest'
+)
 
 # products
 
-product1 = Product.create!(
+file = URI.open("https://source.unsplash.com/random/?clothes")
+product1 = Product.new(
   user: user1,
   name: 'Product 1',
   price: 50,
   status: true,
-  description: 'Description of Product 1'
-)
+  description: 'Description of Product 1')
+product1.photo.attach(io: file, filename: "nes.png")
+product1.save
 
-product2 = Product.create!(
+file2 = URI.open("https://source.unsplash.com/random/?clothes")
+product2 = Product.new(
   user: user2,
   name: 'Laheys Liquor',
   price: 20,
   status: true,
-  description: "A bottle of Mr. Lahey's finest liquor."
-)
+  description: "A bottle of Mr. Lahey's finest liquor.")
 
-product3 = Product.create!(
+product2.photo.attach(io: file2, filename: "nes.png")
+product2.save
+
+file3 = URI.open("https://source.unsplash.com/random/?clothes")
+product3 = Product.new(
   user: user1,
   name: 'Sunnyvale Trailer Park T-Shirt',
   price: 15,
   status: true,
-  description: 'Official Sunnyvale Trailer Park merchandise.'
-)
+  description: 'Official Sunnyvale Trailer Park merchandise.')
 
-product4 = Product.create!(
+product3.photo.attach(io: file3, filename: "nes.png")
+product3.save
+
+file4 = URI.open("https://source.unsplash.com/random/?clothes")
+product4 = Product.new(
   user: user5,
   name: 'Rickys Coins',
   price: 10,
   status: true,
   description: "Authentic coins made by Ricky. Don't ask how."
 )
+product4.photo.attach(io: file4, filename: "nes.png")
+product4.save
 
-product5 = Product.create!(
+file5 = URI.open("https://source.unsplash.com/random/?clothes")
+product5 = Product.new(
   user: user4,
   name: 'Bubbles Kitties Calendar',
   price: 12,
   status: true,
   description: "A calendar featuring Bubbles' beloved kitties."
 )
+product5.photo.attach(io: file5, filename: "nes.png")
+product5.save
 
-product6 = Product.create!(
+file6 = URI.open("https://source.unsplash.com/random/?clothes")
+product6 = Product.new(
   user: user2,
   name: 'Julians Rum and Coke Kit',
   price: 30,
   status: true,
   description: 'Everything you need to mix Julian’s signature drink.'
 )
+product6.photo.attach(io: file6, filename: "nes.png")
+product6.save
 
 #transactions
 
