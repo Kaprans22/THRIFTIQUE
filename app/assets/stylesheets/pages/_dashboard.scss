@@ -8,7 +8,7 @@
 .user-avatar img {
   width: 200px; /* adjust as needed */
   height: 200px; /* adjust as needed */
-object-fit: cover;
+  object-fit: cover;
 }
 .user-info {
   display: flex;
@@ -43,6 +43,11 @@ object-fit: cover;
     background-color: $white!important;
     color: $secondary-color!important;
   }
+}
+.item_avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 
 

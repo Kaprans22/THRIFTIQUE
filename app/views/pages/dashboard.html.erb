@@ -1,7 +1,7 @@
 <div class="container mt-3">
-  <div class="user-card d-flex pb-3">
+  <div class="user-card d-flex align-items-end pb-3">
 <div class="user-avatar">
-   <img src="https://i.redd.it/ygdbmq38vh5b1.jpg" alt="User Picture">
+   <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill %>
 </div>
 <div class="user-info">
   <div>
@@ -12,6 +12,21 @@
     <p class="card-text"><i class="fa-solid fa-location-dot fa-lg" style="color: #2b2330;"></i>   <%= @user.address %></p>
   </div>
   </div>
+  <div class="form">
+          <%= form_with(model: @user, local: true, multipart: true, remote: true) do |form| %>
+            <div class="field m-3 string required name">
+              <div class="form-group row mb-4">
+                <%= form.label :photo, class: 'col-sm-4 col-form-label' %>
+                <div class="col-sm-8">
+                  <%= form.file_field :photo, class: 'form-control-file' %>
+                </div>
+              </div>
+            </div>
+            <div class="actions m-3 mt-5">
+              <%= form.submit "Upload Photo", class: "btn btn-primary", data: { disable_with: "Uploading..." } %>
+            </div>
+          <% end %>
+          </div>
     </div>
   <div class="buttoms border-bottom d-flex pb-3">
     <a href="#" class="btn btn-secondary-color mx-2 my-2 my-sm-0">Edit Profile</a>

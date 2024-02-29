@@ -21,6 +21,8 @@ user1 = User.create!(
   email: 'john@example.com',
   password: 'password'
 )
+user1.photo.attach(io: file, filename: "usr.png")
+user1.save
 
 user2 = User.create!(
   first_name: 'Julian',
@@ -30,6 +32,9 @@ user2 = User.create!(
   password: 'rumandcoke'
 )
 
+user2.photo.attach(io: file, filename: "usr.png")
+user2.save
+
 user3 = User.create!(
   first_name: 'Ricky',
   last_name: 'Lahey',
@@ -37,6 +42,8 @@ user3 = User.create!(
   email: 'ricky@example.com',
   password: 'conky123'
 )
+user3.photo.attach(io: file, filename: "usr.png")
+user3.save
 
 user4 = User.create!(
   first_name: 'Bubbles',
@@ -45,6 +52,8 @@ user4 = User.create!(
   email: 'bubbles@example.com',
   password: 'kitties4life'
 )
+user4.photo.attach(io: file, filename: "usr.png")
+user4.save
 
 user5 = User.create!(
   first_name: 'Jim',
@@ -53,6 +62,8 @@ user5 = User.create!(
   email: 'jim@example.com',
   password: 'liquoronmypiss'
 )
+user5.photo.attach(io: file, filename: "usr.png")
+user5.save
 
 user6 = User.create!(
   first_name: 'Randy',
@@ -61,6 +72,10 @@ user6 = User.create!(
   email: 'randy@example.com',
   password: 'cheeseburgers'
 )
+
+user6.photo.attach(io: file, filename: "usr.png")
+user6.save
+
 user7 = User.create!(
   first_name: 'Trevor',
   last_name: 'Corry',
@@ -68,13 +83,19 @@ user7 = User.create!(
   email: 'TandC@example.com',
   password: 'JulianGOAT'
 )
+user7.photo.attach(io: file, filename: "usr.png")
+user7.save
+
 user8 = User.create!(
   first_name: 'Test',
   last_name: 'Test',
-  address: 'testtest',
+  address: 'Amsterdam, Netherlands',
   email: 'test@test.com',
   password: 'testtest'
 )
+user8.photo.attach(io: file, filename: "usr.png")
+user8.save
+
 
 # products
 
