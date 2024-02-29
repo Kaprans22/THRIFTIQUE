@@ -1,23 +1,25 @@
 <div class="container mt-4">
+  <div class="d-flex justify-content-between">
   <h1>Products</h1>
-  <%= link_to 'Add a new product here', new_product_path %>
-
-  <%= form_with(url: products_path, method: :get, local: true) do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag 'Search', name: nil %>
-  <% end %>
+  <%= link_to 'Add a product', new_product_path, class:'btn btn-outline-secondary-color mx-2 my-2 '  %>
+</div>
 
 <div class="product-list">
   <% @products.each do |product| %>
-    <div class="product">
-      <%= link_to product.name, product_path(product) %> - <%= number_to_currency(product.price) %>
-      <% if product.image.attached? %>
-      <%= image_tag product.image, class: 'product-image' %>
-    <% end %>
+    <div class="card-product my-2 shadow-sm p-3 bg-white rounded">
+      <% if product.photo.attached? %>
+        <%= image_tag product.photo, class: 'product-image rounded-top' %>
+      <% end %>
+      <div class="card-text d-flex flex-column">
+        <strong> <%= link_to product.name, product_path(product)%> </strong>
+        <p></p><%= product.price %> $ </p>
+      </div>
       <br>
     </div>
   <% end %>
 </div>
 <br>
-  <%= link_to 'Go back!', root_path, class: 'home-bttn' %>
+  <div class="col-md-8 back-button" >
+    <%= link_to 'Back', products_path, class: "btn btn-secondary btn-block my-2" %>
+  </div>
 </div>

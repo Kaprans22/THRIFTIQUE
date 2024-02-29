@@ -15,10 +15,10 @@
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-    <% if @product.image.attached? %>
-      <p>Current image: <%= image_tag @product.image.variant(resize: "100x100") %></p>
+    <%= form.label :photo %>
+    <%= form.file_field :photo %>
+    <% if @product.photo.attached? %>
+      <p>Current photo: <%= image_tag @product.photo.variant(resize: "100x100") %></p>
     <% end %>
   </div>
 
