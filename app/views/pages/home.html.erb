@@ -23,12 +23,12 @@
 
 <div class="spacer_img">
   <div class="image-box">
-    <img src="/assets/Stussy_Hero.jpg" alt="Image 1" class="rounded">
+    <%= image_tag 'Stussy_Hero.jpg', alt: 'Image 1', class: 'rounded' %>
     <div class="text-overlay top-left">Discover streetwear fashion</div>
     <%= link_to 'Explore', products_path(search: 'streetwear'), class: 'explore-button' %>
   </div>
   <div class="image-box">
-    <img src="/assets/LV_BG.jpg" alt="Image 2" class="rounded">
+    <%= image_tag 'LV_BG.jpg', alt: 'Image 1', class: 'rounded' %>
     <div class="text-overlay top-right">Browse luxurious Items</div>
     <%= link_to 'Explore', products_path(search: 'luxury'), class: 'explore-button' %>
   </div>
