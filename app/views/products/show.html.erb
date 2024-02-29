@@ -15,8 +15,8 @@
         <!-- Form submit -->
         <p>Brand: <%= @product.brand%></p>
         <p>Condition: <%=@product.condition%></p>
-        <p>Location: <%=@product.location%></p>
-        <p>Listed by: <%= @product.user.first_name %> <%= @product.user.last_name %></p>
+        <p>Size: <%=@product.size%></p>
+        <p>Listed by: <%= @product.user.email %></p>
         </div>
           <%= simple_form_for([@product, @transaction]) do |form| %>
 
