@@ -18,20 +18,20 @@
       <h2 class="">Address</h2>
       <div class="d-flex justify-content-between">
         <p class=""><%= @user.address %></p>
-        <h5><i class="fa-solid fa-pencil"></i></h5>
+        <h5><i class="fa-solid fa-pencil clickable-image"></i></h5>
       </div>
     </div>
 
-    <!-- Contact Deets -->
+    <!-- Email address -->
     <div class="checkout-container">
       <h2>Contact details</h2>
       <div class="d-flex justify-content-between">
         <p><%= @user.email %></p>
-        <h5><i class="fa-solid fa-pencil"></i></h5>
+        <h5><i class="fa-solid fa-pencil clickable-image"></i></h5>
       </div>
     </div>
 
-    <!-- Delivery -->
+    <!-- Delivery & Map -->
     <div class="checkout-container">
       <h2>Delivery details</h2>
       <div class="d-flex justify-content-between">
@@ -46,9 +46,28 @@
     <!-- Payment -->
     <div class="checkout-container">
       <h2>Payment</h2>
-      <p>iDeal</p>
-      <i src="app/assets/images/ideal-logo.webp"></i>
-      <%= image_tag "ideal-logo.webp" %>
+      <div class="d-flex justify-content-end  text-center">
+        <div class="m-2 p-2">
+          <p>iDeal</p>
+          <i src="app/assets/images/ideal-logo.webp"></i>
+          <%= image_tag "ideal-logo.webp", class: 'clickable-image', size: '70x70'%>
+        </div>
+        <div class="m-2 p-2">
+          <p>Paypal</p>
+          <i src="app/assets/images/ideal-logo.webp"></i>
+          <%= image_tag "paypal_2014_logo.png", class: 'clickable-image', size: '70x70'%>
+        </div>
+        <div class="m-2 p-2">
+          <p>Visa</p>
+          <i src="app/assets/images/visa.jpg"></i>
+          <%= image_tag "visa.jpg", class: 'clickable-image', size: '100x80'%>
+        </div>
+        <div class="m-2 p-2">
+          <p>Amex</p>
+          <i src="app/assets/images/american_express_logo.png"></i>
+          <%= image_tag "american_express_logo.png", class: 'clickable-image', size: '70x70'%>
+        </div>
+      </div>
     </div>
 
     <!-- Order details -->
