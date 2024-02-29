@@ -1,3 +1,15 @@
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Change the scrollbar thumb color */
+::-webkit-scrollbar-thumb {
+  background-color: #ecb497; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Border radius of the thumb */
+}
+
+
 .item_avatar {
   width: 100px;
   height: 100px;
@@ -6,7 +18,7 @@
 .item_button {
   display: inline-block;
   padding: 5px 5px;
-  background-color: rgb(93, 186, 1);
+  background-color: #ecb497;
   color: white;
   border-radius: 5px;
   text-decoration: none;
