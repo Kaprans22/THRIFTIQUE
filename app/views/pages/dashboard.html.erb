@@ -13,14 +13,28 @@
     <div class="col-md-4">
       <div class="card">
         <div class="card-body">
-          <img src="https://i.redd.it/ygdbmq38vh5b1.jpg" alt="User Picture" class="img-fluid mb-3">
-          <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
+          <%= image_tag(@user.photo || "user_def.png", class: "rounded-circle img-fluid mb-3", alt: "User Picture", style: "width: 150px; height: 150px; object-fit: cover;") %>
+          <h5 class="card-title"><strong></strong><%= @user.first_name %> <%= @user.last_name %></h5>
           <p class="card-text"><strong>Email:</strong> <%= @user.email %></p>
-          <p class="card-text"><strong>Address:</strong> <%= @user.address %></p>
+          <p class="card-text"><strong>Address:</strong>  <%= @user.address %></p>
         </div>
       </div>
-    </div>
 
+
+      <%= form_with(model: @user, local: true, multipart: true, remote: true) do |form| %>
+  <div class="field m-3 string required name">
+    <div class="form-group row mb-4">
+      <%= form.label :photo, class: 'col-sm-4 col-form-label' %>
+      <div class="col-sm-8">
+        <%= form.file_field :photo, class: 'form-control-file' %>
+      </div>
+    </div>
+  </div>
+  <div class="actions m-3 mt-5">
+    <%= form.submit "Upload Photo", class: "btn btn-primary", data: { disable_with: "Uploading..." } %>
+  </div>
+<% end %>
+    </div>
     <div class="col-md-8">
         <div class="card-header bg-dark text-white">
           Your listed items
