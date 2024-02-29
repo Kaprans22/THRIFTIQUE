@@ -1,72 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Dashboard</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <%= image_tag(@user.photo || "user_def.png", class: "rounded-circle img-fluid mb-3", alt: "User Picture", style: "width: 150px; height: 150px; object-fit: cover;") %>
-          <h5 class="card-title"><strong></strong><%= @user.first_name %> <%= @user.last_name %></h5>
-          <p class="card-text"><strong>Email:</strong> <%= @user.email %></p>
-          <p class="card-text"><strong>Address:</strong>  <%= @user.address %></p>
-        </div>
-      </div>
-
-
-      <%= form_with(model: @user, local: true, multipart: true, remote: true) do |form| %>
-  <div class="field m-3 string required name">
-    <div class="form-group row mb-4">
-      <%= form.label :photo, class: 'col-sm-4 col-form-label' %>
-      <div class="col-sm-8">
-        <%= form.file_field :photo, class: 'form-control-file' %>
-      </div>
-    </div>
-  </div>
-  <div class="actions m-3 mt-5">
-    <%= form.submit "Upload Photo", class: "btn btn-primary", data: { disable_with: "Uploading..." } %>
-  </div>
-<% end %>
-    </div>
-    <div class="col-md-8">
-        <div class="card-header bg-dark text-white">
-          Your listed items
-        </div>
-        <div class="card-body-item" style="display: flex;">
-          <ul class="list-group-cl">
-            <% @items.each do |item| %>
-              <li class="list-group-item">
-                <%= link_to item.name, product_path(item), class: "item_button" %>
-                <p>
-                  <% if item.status %>
-                    Purchased
-                  <% else %>
-                    Still available for purchasing
-                  <% end %>
-                </p>
-                <p>
-                  Price:
-                  <%= item.price %> €
-                </p>
-                <% if item.photo.attached? %>
-                  <%= image_tag(item.photo, class: "item_avatar") %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-  </div>
+<div class="container mt-3">
+  <div class="user-card d-flex align-items-end pb-3">
+<div class="user-avatar">
+   <%= cl_image_tag @user.photo.key, height: 400, width: 400, crop: :fill %>
 </div>
-<br>
-<!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+<div class="user-info">
+  <div>
+    <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
+  </div>
+  <div>
+    <p class="card-text"><i class="fa-solid fa-envelope" style="color: #2b2330;"></i>   <%= @user.email %></p>
+    <p class="card-text"><i class="fa-solid fa-location-dot fa-lg" style="color: #2b2330;"></i>   <%= @user.address %></p>
+  </div>
+  </div>
+  <div class="form">
+          <%= form_with(model: @user, local: true, multipart: true, remote: true) do |form| %>
+            <div class="field m-3 string required name">
+              <div class="form-group row mb-4">
+                <%= form.label :photo, class: 'col-sm-4 col-form-label' %>
+                <div class="col-sm-8">
+                  <%= form.file_field :photo, class: 'form-control-file' %>
+                </div>
+              </div>
+            </div>
+            <div class="actions m-3 mt-5">
+              <%= form.submit "Upload Photo", class: "btn btn-primary", data: { disable_with: "Uploading..." } %>
+            </div>
+          <% end %>
+          </div>
+    </div>
+  <div class="buttoms border-bottom d-flex pb-3">
+    <a href="#" class="btn btn-secondary-color mx-2 my-2 my-sm-0">Edit Profile</a>
+    <%= link_to 'Add your product', new_product_path, class:'btn btn-secondary-color mx-2 my-2 my-sm-0' %>
+  </div>
+
+  <h3 class="mt-3">Your listed items:</h3>
+        <div class="product-list mr-5">
+            <% @items.each do |item| %>
+            <%= link_to product_path(item) do %>
+               <div class="card-product shadow-sm p-3 bg-white rounded">
+                      <% if item.photo.attached? %>
+                          <%= image_tag item.photo, class: 'product-image rounded-top' %>
+                        <% end %>
+                          <div class="card-text d-flex flex-column align-items-end">
+                            <strong><%= item.name %></strong>
+                            <%=item.price%>€
+                            <p>
+                              <% if item.status %>
+                                Bought
+                              <% else %>
+                                Available
+                              <% end %>
+                            </p>
+                          </div>
+                  </div>
+                <% end %>
+          <% end %>
+        </div>
+      </div>

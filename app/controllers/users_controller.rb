@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to @user, norice: 'Profile picture was updated'
+      redirect_to dashboard_path(@user), notice: 'Profile picture was updated'
     else
       render :edit
     end

@@ -1,18 +1,18 @@
 <!-- app/views/products/show.html.erb -->
   <div class="row mr-5">
     <div class="text-center">
-    <h1><%= @product.name %></h1>
-    <p><%= @product.description %></p>
+    <h1 class="mt-4 mb-5"><%= @product.name %></h1>
     </div>
     <div class="col-7 text-center">
     <%= image_tag @product.photo, class: "product-image rounded" if @product.photo.attached? %>
     </div>
   <div class="card rounded bg-white col-4" style="width: 18rem;">
       <div class="card-body d-flex flex-column justify-content-between">
-        <div class="card-info mt-5">
+        <div class="card-info">
         <h5 class="card-title"><%= number_to_currency(@product.price) %></h5>
         <hr>
         <!-- Form submit -->
+        <p>Description: <%= @product.description %></p>
         <p>Brand: <%= @product.brand%></p>
         <p>Condition: <%=@product.condition%></p>
         <p>Size: <%=@product.size%></p>
