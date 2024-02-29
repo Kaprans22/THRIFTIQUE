@@ -9,7 +9,7 @@
   <div class="card rounded bg-white col-4" style="width: 18rem;">
       <div class="card-body d-flex flex-column justify-content-between">
         <div class="card-info">
-        <h5 class="card-title"><%= number_to_currency(@product.price) %></h5>
+        <h5 class="card-title"><%=@product.price %> € </h5>
         <hr>
         <!-- Form submit -->
         <p>Description: <%= @product.description %></p>
@@ -32,8 +32,7 @@
     <!-- Add any additional content here if needed -->
   </div>
 </div>
-
   <div class="col-md-8 back-button" style="padding-left: 220px;">
-    <%= link_to 'Back', products_path, class: "btn btn-secondary btn-block my-2" %>
+    <%= link_to 'Back', :back, class: "btn btn-secondary btn-block my-2" %>
   </div>
 </div>
