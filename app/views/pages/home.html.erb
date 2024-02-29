@@ -1,11 +1,8 @@
-<h1>Welcome to our store!</h1>
-
-
-
-<div class="product-list">
+<h1 class="home-title">Welcome to Thriftique!</h1>
+<div class="product-list mr-5">
   <% @products.each do |product| %>
   <%= link_to product_path(product) do %>
-    <div class="card-product my-2 shadow-sm p-3 bg-white rounded">
+    <div class="card-product shadow-sm p-3 bg-white rounded">
       <% if product.photo.attached? %>
         <%= image_tag product.photo, class: 'product-image rounded-top' %>
       <% end %>
