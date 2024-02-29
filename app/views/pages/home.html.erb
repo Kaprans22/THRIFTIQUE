@@ -1,22 +1,60 @@
 <h1 class="home-title">Welcome to Thriftique!</h1>
+<br>
+
+<br>
+
 <div class="product-list mr-5">
-  <% @products.each do |product| %>
-  <%= link_to product_path(product) do %>
-    <div class="card-product shadow-sm p-3 bg-white rounded">
-      <% if product.photo.attached? %>
-        <%= image_tag product.photo, class: 'product-image rounded-top' %>
+  <% @products.each_with_index do |product, index| %>
+    <% if index < 8 %>
+      <%= link_to product_path(product) do %>
+        <div class="card-product shadow-sm p-3 bg-white rounded">
+          <% if product.photo.attached? %>
+            <%= image_tag product.photo, class: 'product-image rounded-top' %>
+          <% end %>
+          <div class="card-text d-flex flex-column align-items-end">
+            <strong><%= product.name %></strong>
+            <%= product.price %>€
+          </div>
+        </div>
       <% end %>
-      <div class="card-text d-flex flex-column align-items-end">
-      <strong><%= product.name %></strong>
-      <%=product.price%>€
-      </div>
-    </div>
-  <% end %>
+    <% end %>
   <% end %>
 </div>
+
+<div class="spacer_img">
+  <div class="image-box">
+    <img src="/assets/Stussy_Hero.jpg" alt="Image 1" class="rounded">
+    <div class="text-overlay top-left">Discover streetwear fashion</div>
+    <%= link_to 'Explore', products_path(search: 'streetwear'), class: 'explore-button' %>
+  </div>
+  <div class="image-box">
+    <img src="/assets/LV_BG.jpg" alt="Image 2" class="rounded">
+    <div class="text-overlay top-right">Browse luxurious Items</div>
+    <%= link_to 'Explore', products_path(search: 'luxury'), class: 'explore-button' %>
+  </div>
+</div>
+<br>
+
+<div class="product-list mr-5">
+  <% @products.each_with_index do |product, index| %>
+    <% if index >= 8 %>
+      <%= link_to product_path(product) do %>
+        <div class="card-product shadow-sm p-3 bg-white rounded">
+          <% if product.photo.attached? %>
+            <%= image_tag product.photo, class: 'product-image rounded-top' %>
+          <% end %>
+          <div class="card-text d-flex flex-column align-items-end">
+            <strong><%= product.name %></strong>
+            <%= product.price %>€
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
 <br>
 <p>
   Want to sell something? <%= link_to 'Add your product', new_product_path, class:'btn btn-outline-secondary-color mx-2 my-2 my-sm-0' %>
 </p>
-<br>
 <br>

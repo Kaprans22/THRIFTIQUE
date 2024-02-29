@@ -1,9 +1,21 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_product, only: %i[show update edit destroy]
+  SEARCH_MAPPING = {
+    'streetwear' => ['stussy', 'carhartt', 'bape', 'nike'],
+    'sneakers' => ['nike', 'adidas', 'jordan', 'yeezy'],
+    'luxury' => ['gucci', 'louis vuitton', 'prada', 'hermes'],
+  }.freeze
+
   def index
-    if params[:search].present?
-      @products = Product.where('lower(name) LIKE ?', "%#{params[:search].downcase}%")
+    search_terms = params[:search].present? ? Array(params[:search]) : []
+    search_terms = search_terms.flat_map { |term| SEARCH_MAPPING[term.downcase] || term }
+
+    if search_terms.any?
+      @products = Product.where(
+        search_terms.map { |term| "lower(name) LIKE ?" }.join(" OR "),
+        *search_terms.map { |term| "%#{term.downcase}%" }
+      )
     else
       @products = Product.none
     end
