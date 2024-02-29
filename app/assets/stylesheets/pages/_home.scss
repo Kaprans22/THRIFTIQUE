@@ -61,7 +61,7 @@
   max-width: calc(100% - 32px);
   display: flex;
   justify-content: space-between;
-  margin: 10px;
+  margin: 12px;
 }
 
 .image-box {
@@ -71,6 +71,13 @@
   align-items: center;
   position: relative;
   max-width: 45%;
+  margin: 30px;
+}
+
+.image-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
 }
 
 .image-box img {
