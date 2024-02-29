@@ -1,5 +1,7 @@
 <main class="u-flex-grow">
   <div class="container">
+
+    <!-- Orders -->
     <div class="checkout-container">
       <h2>Order</h2>
       <div class="d-flex justify-content-between">
@@ -10,6 +12,8 @@
         <p class=""><%= @product.price %>$</p>
       </div>
     </div>
+
+    <!-- Address -->
     <div class="checkout-container">
       <h2 class="">Address</h2>
       <div class="d-flex justify-content-between">
@@ -17,6 +21,8 @@
         <h5><i class="fa-solid fa-pencil"></i></h5>
       </div>
     </div>
+
+    <!-- Contact Deets -->
     <div class="checkout-container">
       <h2>Contact details</h2>
       <div class="d-flex justify-content-between">
@@ -24,16 +30,28 @@
         <h5><i class="fa-solid fa-pencil"></i></h5>
       </div>
     </div>
+
+    <!-- Delivery -->
     <div class="checkout-container">
       <h2>Delivery details</h2>
       <div class="d-flex justify-content-between">
-        <p>MAP API Logic</p>
+      </div>
+      <div style="width: 100%; height: 600px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
+
+    <!-- Payment -->
     <div class="checkout-container">
       <h2>Payment</h2>
       <p>iDeal</p>
+      <i src="app/assets/images/ideal-logo.webp"></i>
+      <%= image_tag "ideal-logo.webp" %>
     </div>
+
+    <!-- Order details -->
     <div class="checkout-container">
       <h2>Order details</h2>
       <p>Calendar</p>
