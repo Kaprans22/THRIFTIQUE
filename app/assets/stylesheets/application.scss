@@ -13,6 +13,7 @@
 @import "pages/dashboard";
 @import "bootstrap";
 
+
 a {
   text-decoration: none;
   color: $black;
@@ -25,6 +26,6 @@ li {
 
 body {
   @include dm-sans-font;
-  background-color: $light-gray;
+  background-color: $background-color;
   color: $black;
 }

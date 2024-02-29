@@ -22,8 +22,25 @@
    color: white!important;
   }
 }
+// .btn-outline-secondary-color {
+//   background-color: $secondary-color;
+//   border-color: $white;
+//   color: white;
+//   &:hover {
+//     background-color:$white;
+//     border-color: $secondary-color;
+//     color: $secondary-color;
+//    }
+//    // Assuming you want white text
+// }
 // .nav-item {
 //   margin-right: 20px;
 //   outline: 1px solid;
 //   border-radius: 15%;
 // }
+.logo-text {
+  margin-top: 16px;
+  font-size: 32px;
+  margin-bottom: 0px!important;
+  margin-left: 6px!important;
+}
