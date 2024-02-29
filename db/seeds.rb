@@ -89,7 +89,7 @@ user7.save
 user8 = User.create!(
   first_name: 'Test',
   last_name: 'Test',
-  address: 'testtest',
+  address: 'Amsterdam, Netherlands',
   email: 'test@test.com',
   password: 'testtest'
 )

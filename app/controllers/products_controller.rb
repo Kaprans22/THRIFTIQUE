@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_product, only: %i[show update edit destroy]
   def index
     if params[:search].present?
@@ -46,7 +47,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :photo, :size)
+    params.require(:product).permit(:name, :description, :price, :photo, :size, :brand, :condition, :status, :email)
   end
 
   def set_product

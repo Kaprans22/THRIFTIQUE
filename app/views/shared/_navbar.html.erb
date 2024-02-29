@@ -1,19 +1,30 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-0 border-bottom">
-  <div class="container-fluid">
+<div class="navbar navbar-expand-lg navbar-light navbar-lewagon px-0 border-bottom">
+  <div class="container-fluid d-flex justify-content-between">
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "Thriftique.png" %>
+      <div class="d-flex justify-content-between">
+        <%= image_tag "Thriftique-Photoroom.png-Photoroom.png", class:"mb-1"%>
+        <p class="logo-text align-self-end"> Thriftique </p>
+      </div>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="d-flex align-items-center d-none d-sm-block">
+      <%= form_with(url: products_path, method: :get, local: true, class:"form-inline d-flex mx-auto") do %>
+        <%= text_field_tag :search, params[:search], class:"form-control bg-white col-md-4" %>
+        <%= submit_tag 'Search', name: nil, class:"btn btn-outline-secondary-color mx-2 my-2 my-sm-0"%>
+      <% end %>
+    </div>
 
-    <%= form_with(url: products_path, method: :get, local: true, class:"form-inline d-flex") do %>
-    <%= text_field_tag :search, params[:search], class:"form-control bg-white col-md-4" %>
-    <%= submit_tag 'Search', name: nil, class:"btn btn-outline-secondary-color mx-2 my-2 my-sm-0"%>
-    <% end %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="d-flex align-items-center d-block d-sm-none">
+      <%= form_with(url: products_path, method: :get, local: true, class:"form-inline d-flex mx-auto") do %>
+        <%= text_field_tag :search, params[:search], class:"form-control bg-white col-md-4" %>
+        <%= submit_tag 'Search', name: nil, class:"btn btn-outline-secondary-color mx-2 my-2 my-sm-0"%>
+      <% end %>
+    </div>
       <ul class="navbar-nav me-auto">
       </ul>
       <ul class="navbar-nav">
@@ -24,7 +35,7 @@
           <%= link_to "Dashboard", dashboard_path(current_user), class: "nav-link" if user_signed_in? %>
         </li>
         <li class="nav-item p-2">
-          <%= link_to "New Product", new_product_path, class: "nav-link" %>
+          <%= link_to "New Product", new_product_path, class:"btn btn-outline-secondary-color mx-2 my-2 my-sm-0" %>
         </li>
       </ul>
     </div>

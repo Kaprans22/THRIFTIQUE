@@ -1,7 +1,27 @@
+.home-title {
+  text-align: start;
+  margin: 20px;
+  margin-left: 0px!important;
+}
 .product-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 16px;
+  flex-grow: 1;
+}
+
+@media (max-width: 992px) {
+  .product-list {
+    grid-template-columns: 1fr 1fr ;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-listcards {
+    grid-template-columns: 1fr;
+  }
 }
 
 .product {
