@@ -1,12 +1,14 @@
 .card-product {
+  flex: 0 0 calc(25% - 10px);
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
   padding: 16px;
-  margin-top: 16px !important;
-  margin-bottom: 16px !important;
+  margin-bottom: 16px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .card img {
