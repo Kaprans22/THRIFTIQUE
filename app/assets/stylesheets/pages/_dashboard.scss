@@ -75,3 +75,8 @@
   padding: 20px;
   height: 300px;
 }
+.profile-edit-container {
+  display: flex;
+  align-items: start; /* Align items to the start of the cross axis */
+  margin-right: 20px;
+}
