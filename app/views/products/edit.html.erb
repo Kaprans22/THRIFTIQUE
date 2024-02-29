@@ -1,27 +1,44 @@
 <%= form_with(model: @product, local: true) do |form| %>
+  <%= form.label :name %>
   <div class="field">
-    <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
+  <%= form.label :description %>
   <div class="field">
-    <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
+  <%= form.label :price %>
   <div class="field">
-    <%= form.label :price %>
     <%= form.number_field :price, step: 0.01 %>
+  </div>
+
+  <%= form.label :size %>
+  <div class="field">
+    <%= form.text_field :size, step: 0.01 %>
+  </div>
+
+  <%= form.label :condition %>
+  <div class="field">
+    <%= form.text_field :condition, step: 0.01 %>
+  </div>
+
+  <%= form.label :brand %>
+  <div class="field">
+    <%= form.text_field :brand, step: 0.01 %>
   </div>
 
   <div class="field">
     <%= form.label :photo %>
     <%= form.file_field :photo %>
     <% if @product.photo.attached? %>
-      <p>Current photo: <%= image_tag @product.photo.variant(resize: "100x100") %></p>
     <% end %>
   </div>
 
+  <p>Current photo:</p>
+<%= image_tag @product.photo, style: "width: 500px; height: 500px; object-fit: cover;" %>
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>
