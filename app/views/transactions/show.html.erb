@@ -1,26 +1,42 @@
-<div class="container">
-  <div class="container d-flex">
-    <h2>Order</h2>
-    <p><%= @product.name %></p>
-  </div>
+<main class="u-flex-grow">
   <div class="container">
-    <h2>Address</h2>
-    <p><%= @user.address %></p>
+    <div class="checkout-container">
+      <h2>Order</h2>
+      <div class="d-flex justify-content-between">
+        <div class="d-flex">
+          <%= image_tag @product.photo, class: 'product-image rounded-top' %>
+          <p><%= @product.name %></p>
+        </div>
+        <p class=""><%= @product.price %>$</p>
+      </div>
+    </div>
+    <div class="checkout-container">
+      <h2 class="">Address</h2>
+      <div class="d-flex justify-content-between">
+        <p class=""><%= @user.address %></p>
+        <h5><i class="fa-solid fa-pencil"></i></h5>
+      </div>
+    </div>
+    <div class="checkout-container">
+      <h2>Contact details</h2>
+      <div class="d-flex justify-content-between">
+        <p><%= @user.email %></p>
+        <h5><i class="fa-solid fa-pencil"></i></h5>
+      </div>
+    </div>
+    <div class="checkout-container">
+      <h2>Delivery details</h2>
+      <div class="d-flex justify-content-between">
+        <p>MAP API Logic</p>
+      </div>
+    </div>
+    <div class="checkout-container">
+      <h2>Payment</h2>
+      <p>iDeal</p>
+    </div>
+    <div class="checkout-container">
+      <h2>Order details</h2>
+      <p>Calendar</p>
+    </div>
   </div>
-  <div class="container">
-    <h2>Delivery details</h2>
-    <p>MAP API Logic</p>
-  </div>
-  <div class="container">
-    <h2>Contact details</h2>
-    <p><%= @user.email %></p>
-  </div>
-  <div class="container">
-    <h2>Payment</h2>
-    <p>iDeal</p>
-  </div>
-  <div class="container">
-    <h2>Order details</h2>
-    <p>Calendar</p>
-  </div>
-</div>
+</main>
