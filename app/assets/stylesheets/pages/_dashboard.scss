@@ -4,7 +4,7 @@
   border-radius: 50%;
   overflow: hidden;
   margin-right: 16px!important;
-  border: 1px solid #6d597a; /* adjust as needed */
+  border: 1px solid #fefefe; /* adjust as needed */
 }
 .user-avatar img {
   width: 200px; /* adjust as needed */
@@ -50,6 +50,13 @@
   height: 100px;
   object-fit: cover;
 }
+
+.product-dashboard-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 16px;
+}
+
 
 .profile-edit-container {
   display: flex;
@@ -99,8 +106,63 @@
   background-color: $red!important;
   border-color: $red!important;
   color: $white!important;
+ margin-left: 136px;
   &:hover {
     background-color: $white!important;
     color: $red!important;
   }
+}
+
+.banner-homepage {
+  width: 100% !important;
+  height: 50px;
+  background-color: #33333300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.banner-homepage-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s ease;
+}
+
+.banner-homepage:hover .banner-homepage-content {
+  transform: translateX(-50%);
+}
+
+
+
+.default-text,
+.hover-text {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  color: #6d597a;
+  font-size: 24px;
+  font-weight: bold;
+  transition: left 0.5s ease;
+}
+
+.default-text {
+  left: 0;
+  justify-content: left;
+  margin-left: 20px;
+  font-style: oblique;
+}
+
+.hover-text {
+  left: 49.5%;
+  justify-content: center;
+  font-style: oblique;
 }

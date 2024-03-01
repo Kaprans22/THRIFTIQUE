@@ -59,15 +59,22 @@
     </div>
   </div>
 
-  <h3 class="my-4 mx-5">Your listed items:</h3>
-        <div class="product-list mr-5">
+<div class="banner-homepage mt-4">
+    <div class="banner-homepage-content">
+      <span class="default-text">Your listed items</span>
+      <span class="hover-text">Declutter your wardrobe for a cleaner Earth</span>
+    </div>
+  </div>
+
+  <div class="product-dashboard-list mr-5">
 <% @items.each do |item| %>
   <%= link_to product_path(item) do %>
-    <div class="card-product shadow-sm p-3 bg-white rounded">
+    <div class="card-product shadow-sm bg-white rounded">
       <% if item.photo.attached? %>
         <%= image_tag item.photo, class: 'product-image rounded-top' %>
       <% end %>
-      <div class="card-text d-flex flex-column align-items-end">
+      <div class="card-text d-flex flex-column">
+        <div class="align-self-end">
         <strong><%= item.name %></strong>
         <%=item.price%>€
         <p>
@@ -77,8 +84,9 @@
             Available
           <% end %>
         </p>
-<div class="d-flex justify-content-between">
-<%= link_to 'Edit', edit_product_path(item), class: 'btn btn-primary-color mx-2 mb-2' %>
+        </div>
+<div class="ms-0", style="width:270px;">
+<%= link_to 'Edit', edit_product_path(item), class: 'btn btn-primary-color' %>
 <%= form_with url: delete_product_path(item), method: :delete, local: true, class: 'd-inline' do %>
   <%= submit_tag 'Delete', class: 'btn btn-red', data: { confirm: 'Are you sure you want to delete this product?' } %>
 <% end %>
