@@ -21,7 +21,11 @@
           <%= simple_form_for([@product, @transaction]) do |form| %>
 
         <div class="d-grid gap-2 mb-3" role="group" aria-label="Product Actions">
-            <%= form.submit "Buy Now", class: "btn btn-primary" %>
+<% if @product.user == current_user %>
+  <%= form.submit "Buy Now", class: "btn btn-primary", disabled: true, style: "opacity: 0.5;" %>
+<% else %>
+  <%= form.submit "Buy Now", class: "btn btn-primary" %>
+<% end %>
           <% end %>
         </div>
       </div>
