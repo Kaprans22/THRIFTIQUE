@@ -74,6 +74,17 @@
     <div class="checkout-container">
       <h2>Order details</h2>
       <p>Calendar</p>
+      <div id="calendar"></div>
+
     </div>
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    flatpickr("#calendar", {
+
+      dateFormat: "d-m-Y",
+      inline: true
+    });
+  });
+</script>
   </div>
 </main>
