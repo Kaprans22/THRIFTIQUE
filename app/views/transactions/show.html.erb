@@ -43,31 +43,52 @@
     </div>
 
     <!-- Payment -->
-    <div class="checkout-container">
-      <h2>Payment</h2>
-      <div class="d-flex justify-content-end  text-center">
-        <div class="m-2 p-2">
-          <p>iDeal</p>
-          <i src="app/assets/images/ideal-logo.webp"></i>
-          <%= image_tag "ideal-logo.webp", class: 'clickable-image', size: '70x70'%>
-        </div>
-        <div class="m-2 p-2">
-          <p>Paypal</p>
-          <i src="app/assets/images/ideal-logo.webp"></i>
-          <%= image_tag "paypal_2014_logo.png", class: 'clickable-image', size: '70x70'%>
-        </div>
-        <div class="m-2 p-2">
-          <p>Visa</p>
-          <i src="app/assets/images/visa.jpg"></i>
-          <%= image_tag "visa.jpg", class: 'clickable-image', size: '100x80'%>
-        </div>
-        <div class="m-2 p-2">
-          <p>Amex</p>
-          <i src="app/assets/images/american_express_logo.png"></i>
-          <%= image_tag "american_express_logo.png", class: 'clickable-image', size: '70x70'%>
-        </div>
-      </div>
+<div class="checkout-container">
+  <h2>Payment</h2>
+  <div class="d-flex justify-content-end text-center">
+    <div class="m-2 p-2">
+      <p>iDeal</p>
+      <input type="checkbox" id="ideal" class="hidden-checkbox">
+      <label for="ideal">
+        <%= image_tag "ideal-logo.webp", class: 'clickable-image', size: '70x70' %>
+      </label>
     </div>
+    <div class="m-2 p-2">
+      <p>Paypal</p>
+      <input type="checkbox" id="paypal" class="hidden-checkbox">
+      <label for="paypal">
+        <%= image_tag "paypal_2014_logo.png", class: 'clickable-image', size: '70x70' %>
+      </label>
+    </div>
+    <div class="m-2 p-2">
+      <p>Visa</p>
+      <input type="checkbox" id="visa" class="hidden-checkbox">
+      <label for="visa">
+        <%= image_tag "visa.jpg", class: 'clickable-image', size: '100x80' %>
+      </label>
+    </div>
+    <div class="m-2 p-2">
+      <p>Amex</p>
+      <input type="checkbox" id="amex" class="hidden-checkbox">
+      <label for="amex">
+        <%= image_tag "american_express_logo.png", class: 'clickable-image', size: '70x70' %>
+      </label>
+    </div>
+  </div>
+</div>
+
+<style>
+    .clickable-image:hover {
+    transform: scale(1.1); /* You can adjust the scale factor as per your preference */
+  }
+  .hidden-checkbox {
+    display: none;
+  }
+
+  .hidden-checkbox:checked + label .clickable-image {
+    outline: 2px solid #000; /* adjust as needed */
+  }
+</style>
 
     <!-- Order details -->
     <div class="checkout-container">
