@@ -19,7 +19,23 @@
   <% end %>
 </div>
 <br>
-  <div class="col-md-8 back-button" style="padding-left: 220px;">
-    <%= link_to 'Back', :back, class: "btn btn-secondary btn-block my-2" %>
-  </div>
+<style>
+  .btn-red-color {
+    background-color: #5f1B00;
+    border-color: #5f1B00;
+    color: white;
+    margin-bottom: 16px;
+    margin-left: 17px;
+  }
+
+  .btn-red-color:hover {
+    background-color: white;
+    border-color: #5f1B00;
+    color: #5f1B00;
+  }
+</style>
+
+<div class="col-md-8 back-button" style="padding-left: 22px;">
+    <a class="btn btn-secondary btn-block my-2 btn-red-color" href="https://thriftique-kaprans22-fcda80da9d84.herokuapp.com/dashboard.1">Back</a>
+</div>
 </div>
