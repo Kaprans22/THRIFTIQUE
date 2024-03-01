@@ -33,7 +33,13 @@
   </div>
 <%# <div class="row mt-3"> %>
   <%# <div class="col-md-8"> %>
-   <h3 class="my-4 mx-5">Explore more: </h3>
+    <div class="banner-homepage mt-4">
+    <div class="banner-homepage-content">
+      <span class="default-text">Explore more</span>
+      <span class="hover-text">Get inspiration for your sustainable outfit</span>
+    </div>
+  </div>
+
    <div class="product-list mr-5">
   <% @products.each_with_index do |product, index| %>
     <% if index < 8 %>

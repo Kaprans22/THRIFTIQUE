@@ -1,45 +1,90 @@
+<div class="container my-7 py-6">
+  <h1 class="mb-4 d-flex">Edit an item</h1>
+
+
 <%= form_with(model: @product, local: true) do |form| %>
-  <%= form.label :name %>
-  <div class="field">
-    <%= form.text_field :name %>
+<div class="field m-3 string required name">
+      <div class="form-group row">
+  <%= form.label :name,  class: 'col-sm-2 col-form-label' %>
+  <div class="col-sm-10">
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+  </div>
   </div>
 
-  <%= form.label :description %>
-  <div class="field">
-    <%= form.text_area :description %>
-  </div>
+<div class="m-5 p-7"></div>
 
-  <%= form.label :price %>
-  <div class="field">
-    <%= form.number_field :price, step: 0.01 %>
-  </div>
+  <div class="field m-3 string required name">
+      <div class="form-group row">
+        <%= form.label :description, class: 'col-sm-2 col-form-label' %>
+          <div class="col-sm-10 ">
+            <%= form.text_area :description, class: 'form-control' %>
+          </div>
+      </div>
+    </div>
 
-  <%= form.label :size %>
-  <div class="field">
-    <%= form.text_field :size, step: 0.01 %>
-  </div>
+  <div class="m-5 p-7"></div>
+    <div class="field m-3 string required name">
+      <div class="form-group row">
+        <%= form.label :brand, class: 'col-sm-2 col-form-label'  %>
+          <div class="col-sm-10 ">
+            <%= form.text_field :brand, class: 'form-control' %>
+          </div>
+      </div>
+    </div>
 
-  <%= form.label :condition %>
-  <div class="field">
-    <%= form.text_field :condition, step: 0.01 %>
-  </div>
+  <div class="m-5 p-7"></div>
+    <div class="field m-3 string required name">
+      <div class="form-group row">
+        <%= form.label :condition, class: 'col-sm-2 col-form-label'  %>
+          <div class="col-sm-10">
+            <%= form.text_field :condition, class: 'form-control' %>
+          </div>
+      </div>
+    </div>
 
-  <%= form.label :brand %>
-  <div class="field">
-    <%= form.text_field :brand, step: 0.01 %>
-  </div>
+<div class="m-5 p-7"></div>
 
-  <div class="field">
-    <%= form.label :photo %>
-    <%= form.file_field :photo %>
-    <% if @product.photo.attached? %>
-    <% end %>
-  </div>
+  <div class="field m-3 string required name">
+      <div class="form-group row">
+        <%= form.label :size, class: 'col-sm-2 col-form-label'  %>
+          <div class="col-sm-10">
+            <%= form.text_field :size, class: 'form-control' %>
+          </div>
+      </div>
+    </div>
+
+<div class="m-5 p-7"></div>
+
+  <div class="field m-3 string required name">
+      <div class="form-group row mb-4">
+        <%= form.label :price, class: 'col-sm-2 col-form-label' %>
+          <div class="col-sm-2 ">
+            <%= form.number_field :price, step: 0.5, class: 'form-control' %>
+          </div>
+      </div>
+    </div>
+
+<div class="m-5 p-7"></div>
+
+<div class="field m-3 string required name">
+      <div class="form-group row mb-4">
+        <%= form.label :photo, class: 'col-sm-2 col-form-label' %>
+          <div class="col-sm-2">
+            <%= form.file_field :photo %>
+          </div>
+      </div>
+    </div>
 
   <p>Current photo:</p>
-<%= image_tag @product.photo, style: "width: 500px; height: 500px; object-fit: cover;" %>
+<%= image_tag @product.photo, style: "width: 200px; height: 200px; object-fit: cover;" %>
   <br>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <div class="m-5 p-7"></div>
+
+   <div class="actions m-3 mt-5">
+      <%= form.submit %>
+    </div>
+<div class="blank-space"></div>
+    <%= link_to "< Back", :back, class:"btn btn-red-color" %>
 <% end %>
+</div>
