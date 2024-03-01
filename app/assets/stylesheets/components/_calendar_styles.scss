@@ -3,19 +3,19 @@
 .flatpickr-day.selected,
 .flatpickr-day.selected:focus,
 .flatpickr-day.selected:hover {
-  background-color: #800080 !important; // Purple selected day color
+  background-color: $secondary-color !important; // Purple selected day color
 }
 
 .flatpickr-day.today {
-  border-color: #8a2be2 !important;
+  border-color: $secondary-color !important;
 }
 
 span.flatpickr-day.today:not(.selected),
 span.flatpickr-day.prevMonthDay.today:not(.selected),
 span.flatpickr-day.nextMonthDay.today:not(.selected) {
-  border-bottom-color: #800080 !important;
+  border-bottom-color: $secondary-color !important;
 }
 
 .flatpickr-day.today:hover {
-  background-color: #8a2be2 !important;
+  background-color: $primary-color !important;
 }
