@@ -18,39 +18,39 @@
   </div>
   <div>
     <div class="d-flex justify-content-center">
-  <div class="buttoms d-flex flex-column justify-content-between">
-  <div data-controller="toggle" class="mb-3 profile-edit-container">
-  <button data-action="click->toggle#fire" class="btn btn-secondary-color mx-2 my-2 my-sm-0">Edit Profile</button>
-    <div data-toggle-target="togglableElement" class="d-none" class="form">
-        <%= form_with(model: @user, local: true, multipart: true, remote: true) do |form| %>
-          <div class="field my-2">
-            <%= form.label :first_name %>
-            <%= form.text_field :first_name %>
-          </div>
+  <div class="buttoms d-flex flex-column justify-content-between ">
+                <div data-controller="toggle" class="mb-3 ml-5 profile-edit-container">
+                <button data-action="click->toggle#fire" class="btn btn-secondary-color mx-2 my-2 my-sm-0">Edit Profile</button>
+              <div data-toggle-target="togglableElement" class="d-none mx-5 my-5" class="form">
+                      <%= form_with(model: @user, local: true, multipart: true, remote: true) do |form| %>
+                        <div class="field my-2">
+                          <%= form.label :first_name %>
+                          <%= form.text_field :first_name, class: 'form-field' %>
+                        </div>
 
-            <div class="field my-2">
-            <%= form.label :last_name %>
-            <%= form.text_field :last_name %>
-          </div>
+                          <div class="field my-2">
+                          <%= form.label :last_name %>
+                          <%= form.text_field :last_name, class: 'form-field' %>
+                        </div>
 
-          <div class="field my-2">
-            <%= form.label :address %>
-            <%= form.text_field :address %>
-          </div>
+                        <div class="field my-2">
+                          <%= form.label :address %>
+                          <%= form.text_field :address, class: 'form-field' %>
+                        </div>
 
-            <div class="form-group row my-2">
-              <%= form.label :photo, class: 'col-sm-4 col-form-label' %>
-              <div class="col-sm-8">
-                <%= form.file_field :photo, class: 'form-control-file' %>
-              </div>
-            </div>
-          <div class="actions">
-            <%= form.submit "Update profile", class: "btn btn-primary", data: { disable_with: "Uploading..." } %>
-          </div>
-        <% end %>
-          </div>
-        </div>
-      <div>
+                          <div class="form-group row my-2">
+                            <%= form.label :photo %>
+                            <div class="col-sm-8">
+                              <%= form.file_field :photo, class: 'form-field' %>
+                            </div>
+                          </div>
+                        <div class="actions">
+                          <%= form.submit "Update profile", class: "form-field btn btn-secondary-color my-3 my-sm-0", data: { disable_with: "Uploading..." } %>
+                        </div>
+                      <% end %>
+                        </div>
+                      </div>
+      <div class="mb-3">
     <%= link_to 'Add your product', new_product_path, class:'btn btn-secondary-color mx-2 my-2 my-sm-0' %>
     </div>
 
@@ -59,7 +59,7 @@
     </div>
   </div>
 
-  <h3 class="mt-3">Your listed items:</h3>
+  <h3 class="my-4 mx-5">Your listed items:</h3>
         <div class="product-list mr-5">
 <% @items.each do |item| %>
   <%= link_to product_path(item) do %>

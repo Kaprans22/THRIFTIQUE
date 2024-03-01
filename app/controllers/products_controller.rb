@@ -35,6 +35,7 @@ class ProductsController < ApplicationController
 
   def show
     @transaction = Transaction.new
+    @products = Product.all
   end
 
   def delete
