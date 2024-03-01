@@ -26,6 +26,11 @@
     color: white;
     margin-bottom: 16px;
     margin-left: 17px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 4px; /* Optional: Adds rounded corners to the button */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effect */
   }
 
   .btn-red-color:hover {
@@ -36,6 +41,7 @@
 </style>
 
 <div class="col-md-8 back-button" style="padding-left: 22px;">
-    <a class="btn btn-secondary btn-block my-2 btn-red-color" href="https://thriftique-kaprans22-fcda80da9d84.herokuapp.com/dashboard.1">Back</a>
+    <a class="btn btn-secondary btn-block my-2 btn-red-color" href="javascript:history.back()">Back</a>
 </div>
+
 </div>
