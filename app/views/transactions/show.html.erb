@@ -9,7 +9,7 @@
           <%= image_tag @product.photo, class: 'product-image rounded-top' %>
           <p><%= @product.name %></p>
         </div>
-        <p class=""><%= @product.price %>$</p>
+        <p class=""><%= @product.price %>€</p>
       </div>
     </div>
 
@@ -38,7 +38,6 @@
       </div>
       <div style="width: 100%; height: 600px;"
         data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
@@ -78,13 +77,13 @@
 
     </div>
     <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    flatpickr("#calendar", {
+      document.addEventListener('DOMContentLoaded', function() {
+        flatpickr("#calendar", {
 
-      dateFormat: "d-m-Y",
-      inline: true
-    });
-  });
-</script>
+          dateFormat: "d-m-Y",
+          inline: true
+        });
+      });
+    </script>
   </div>
 </main>
