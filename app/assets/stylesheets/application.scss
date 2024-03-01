@@ -13,6 +13,7 @@
 @import "pages/dashboard";
 @import "bootstrap";
 @import "components/card";
+@import "components/calendar_styles";
 
 a {
   text-decoration: none;
@@ -38,5 +39,4 @@ strong {
   cursor: pointer;
   opacity: 0.8;
   animation-duration: 0.5s;
-
 }

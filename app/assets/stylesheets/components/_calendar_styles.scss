@@ -1,0 +1,15 @@
+// Override Flatpickr(Calendar) styles
+.flatpickr-calendar {
+  background-color: #8a2be2; // Purple background color
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.selected:focus,
+.flatpickr-day.selected:hover {
+  background-color: #800080; // Purple selected day color
+}
+
+.flatpickr-monthDropdown-months,
+.flatpickr-time {
+  background-color: #8a2be2; // Purple background color for dropdowns and time picker
+}
