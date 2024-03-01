@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_product, only: %i[show update edit destroy]
-  before_action :check_owner, only: [:edit, :update, :destroy]
+  # before_action :check_owner, only: [:edit, :update, :destroy]
   SEARCH_MAPPING = {
     'streetwear' => ['stussy', 'carhartt', 'bape', 'nike'],
     'sneakers' => ['nike', 'adidas', 'jordan', 'yeezy'],
@@ -23,9 +23,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
+
     if @product.update(product_params)
       redirect_to @product, notice: 'Product was successfully updated.'
     else
