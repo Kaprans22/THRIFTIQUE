@@ -1,15 +1,21 @@
 // Override Flatpickr(Calendar) styles
-.flatpickr-calendar {
-  background-color: #8a2be2; // Purple background color
-}
 
 .flatpickr-day.selected,
 .flatpickr-day.selected:focus,
 .flatpickr-day.selected:hover {
-  background-color: #800080; // Purple selected day color
+  background-color: #800080 !important; // Purple selected day color
 }
 
-.flatpickr-monthDropdown-months,
-.flatpickr-time {
-  background-color: #8a2be2; // Purple background color for dropdowns and time picker
+.flatpickr-day.today {
+  border-color: #8a2be2 !important;
+}
+
+span.flatpickr-day.today:not(.selected),
+span.flatpickr-day.prevMonthDay.today:not(.selected),
+span.flatpickr-day.nextMonthDay.today:not(.selected) {
+  border-bottom-color: #800080 !important;
+}
+
+.flatpickr-day.today:hover {
+  background-color: #8a2be2 !important;
 }
