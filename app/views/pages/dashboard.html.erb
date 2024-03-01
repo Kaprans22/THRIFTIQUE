@@ -69,7 +69,7 @@
   <div class="product-dashboard-list mr-5">
 <% @items.each do |item| %>
   <%= link_to product_path(item) do %>
-    <div class="card-product mx-3 shadow-sm bg-white rounded">
+    <div class="card-product mx-1 shadow-sm bg-white rounded">
       <% if item.photo.attached? %>
         <%= image_tag item.photo, class: 'product-image rounded-top' %>
       <% end %>
