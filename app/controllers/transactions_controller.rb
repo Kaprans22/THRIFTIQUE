@@ -4,6 +4,14 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:id])
     @product     = @transaction.product
     @user        = @transaction.user
+    @address     = @transaction.user.address
+
+    @address_marker = [
+      {
+        lat: @user.latitude,
+        lng: @user.longitude
+      }
+    ]
   end
 
   def create

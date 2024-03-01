@@ -16,7 +16,8 @@ const pickupPoints = [
 
 export default class extends Controller {
   static values = {
-    apiKey: String
+    apiKey: String,
+    addressMarker: Array
   }
 
   connect() {
@@ -29,12 +30,18 @@ export default class extends Controller {
     })
 
     pickupPoints.forEach(point => {
+      const popup = new mapboxgl.Popup().setHTML(`<div>${point.address}</div>`)
       new mapboxgl.Marker()
       .setLngLat([ point.lng, point.lat ])
+      .setPopup(popup)
       .addTo(this.map)
     })
-
     this.#fitMapToMarkers()
+    new mapboxgl.Marker({
+      color: "red"
+    })
+    .setLngLat([ this.addressMarkerValue[0].lng, this.addressMarkerValue[0].lat ])
+    .addTo(this.map)
   }
 
 
@@ -42,6 +49,5 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
     pickupPoints.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 100 })
-
   }
 }
