@@ -50,33 +50,38 @@
   object-fit: cover;
 }
 
-
-.card-body-item {
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-}
-.list-group-cl {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 90%;
-  height: 500px;
-}
-
-.list-group-item {
-  display: flex;
-  justify-content: start;
-  align-items: start;
-  flex: auto;
-  max-width: 100%;
-  border: 1px solid #ffffffc1;
-  padding: 20px;
-  height: 300px;
-}
 .profile-edit-container {
   display: flex;
-  align-items: start; /* Align items to the start of the cross axis */
-  margin-right: 20px;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: end
 }
+.profile-edit-container .form {
+  margin-left: 100px; /* Adjust as needed */
+}
+.form-field {
+  width: 100%; /* Make the fields take up the full width of their container */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.form-field:focus {
+  outline: none; /* Remove the default outline */
+  box-shadow: 0 0 5px $primary-color; /* Add a blue shadow. Replace #007bff with your primary color */
+}
+
+.form-control-file {
+  color: black; /* Make the text white */
+}
+.btn-outline-secondary-color {
+  background-color: $white!important;
+  border-color: $secondary-color!important;
+
+  &:hover {
+   background-color: $secondary-color!important;
+   color: white!important;
+  }
+}
+// .buttoms {
+//   display: flex;
+//   align-items: end
+// }

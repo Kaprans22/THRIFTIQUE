@@ -1,0 +1,13 @@
+
+.btn-red-color {
+  background-color: $red;
+  border-color: $red;
+  color: white;
+  margin-bottom: 16px;
+  margin-left: 17px;
+  &:hover {
+    background-color: $white;
+    border-color: $red;
+    color: $red;
+   }
+}

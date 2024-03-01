@@ -59,7 +59,7 @@
       <div class="form-group row mb-4">
         <%= form.label :price, class: 'col-sm-2 col-form-label' %>
           <div class="col-sm-2 ">
-            <%= form.number_field :price, step: 0.1, class: 'form-control' %>
+            <%= form.number_field :price, step: 0.5, class: 'form-control' %>
           </div>
       </div>
     </div>
@@ -82,6 +82,6 @@
     </div>
 
     <div class="blank-space"></div>
-    <%= link_to "< Back", products_path %>
+    <%= link_to "< Back", :back, class:"btn btn-red-color" %>
   <% end %>
 </div>

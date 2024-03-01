@@ -1,4 +1,4 @@
-<h1 class="home-title">Welcome to Thriftique!</h1>
+<h1 class="home-title my-4 mx-5">Welcome to Thriftique!</h1>
 <br>
 
 <br>
@@ -7,7 +7,7 @@
   <% @products.each_with_index do |product, index| %>
     <% if index < 8 %>
       <%= link_to product_path(product) do %>
-        <div class="card-product shadow-sm p-3 bg-white rounded">
+        <div class="card-product shadow-sm bg-white rounded">
           <% if product.photo.attached? %>
             <%= image_tag product.photo, class: 'product-image rounded-top' %>
           <% end %>
@@ -23,14 +23,18 @@
 
 <div class="spacer_img">
   <div class="image-box">
-    <%= image_tag 'Stussy_Hero.jpg', alt: 'Image 1', class: 'rounded' %>
+    <%= link_to products_path(search: 'streetwear') do %>
+    <%= image_tag 'Stussy_Hero.jpg', alt: 'Image 1', class: 'rounded shadow-sm' %>
     <div class="text-overlay top-left">Discover streetwear fashion</div>
     <%= link_to 'Explore', products_path(search: 'streetwear'), class: 'explore-button' %>
+    <% end %>
   </div>
   <div class="image-box">
-    <%= image_tag 'LV_BG.jpg', alt: 'Image 1', class: 'rounded' %>
+    <%= link_to products_path(search: 'luxury') do %>
+    <%= image_tag 'LV_BG.jpg', alt: 'Image 1', class: 'rounded shadow-sm'  %>
     <div class="text-overlay top-right">Browse luxurious Items</div>
     <%= link_to 'Explore', products_path(search: 'luxury'), class: 'explore-button' %>
+    <% end %>
   </div>
 </div>
 <br>
@@ -39,11 +43,11 @@
   <% @products.each_with_index do |product, index| %>
     <% if index >= 8 %>
       <%= link_to product_path(product) do %>
-        <div class="card-product shadow-sm p-3 bg-white rounded">
+        <div class="card-product shadow-sm bg-white rounded">
           <% if product.photo.attached? %>
-            <%= image_tag product.photo, class: 'product-image rounded-top' %>
+            <%= image_tag product.photo, class: 'product-image rounded-top img-fluid' %>
           <% end %>
-          <div class="card-text d-flex flex-column align-items-end">
+          <div class="card-text mt-3 d-flex flex-column align-items-end">
             <strong><%= product.name %></strong>
             <%= product.price %>€
           </div>
@@ -54,7 +58,7 @@
 </div>
 
 <br>
-<p>
+<p class="mb-4 mx-5">
   Want to sell something? <%= link_to 'Add your product', new_product_path, class:'btn btn-outline-secondary-color mx-2 my-2 my-sm-0' %>
 </p>
 <br>
