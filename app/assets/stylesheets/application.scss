@@ -14,6 +14,7 @@
 @import "bootstrap";
 @import "components/card";
 @import 'components/new';
+@import "components/calendar_styles";
 
 a {
   text-decoration: none;
@@ -39,5 +40,4 @@ strong {
   cursor: pointer;
   opacity: 0.8;
   animation-duration: 0.5s;
-
 }

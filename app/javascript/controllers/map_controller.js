@@ -12,31 +12,11 @@ const pickupPoints = [
   {lat:52.357157807138044, lng:4.795667884147488, address: "217 TUSSEN MEER, 1069, AMSTERDAM"},
 ]
 
-// ????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
-
-const jsonPickupPoints = JSON.stringify(pickupPoints);
-const filePath = 'public/pickupPoints.json';
-
-fs.writeFileSync(filePath, jsonPickupPoints, 'utf-8');
-fs.writeFileSync(filePath, 'Test string', 'utf-8');
-
-const fs = require('fs');
-
-fs.writeFile(filePath, jsonPickupPoints, 'utf-8', function(err) {
-  if (err) {
-    console.error('Error writing file:', err);
-  } else {
-    console.log('File written successfully');
-  }
-});
-
-//ITS FUCKING LATE AND THIS BITCH AINT WORKING
 
 
 export default class extends Controller {
   static values = {
-    apiKey: String,
-    markers: Array
+    apiKey: String
   }
 
   connect() {
@@ -46,6 +26,21 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10"
     })
+
+    pickupPoints.forEach(point => {
+      new mapboxgl.Marker()
+      .setLngLat([ point.lng, point.lat ])
+      .addTo(this.map)
+    })
+
+    this.#fitMapToMarkers()
+  }
+
+
+  #fitMapToMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+    pickupPoints.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0.5 })
 
   }
 }

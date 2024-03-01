@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_product, only: %i[show update edit destroy]
+  before_action :check_owner, only: [:edit, :update, :destroy]
   SEARCH_MAPPING = {
     'streetwear' => ['stussy', 'carhartt', 'bape', 'nike'],
     'sneakers' => ['nike', 'adidas', 'jordan', 'yeezy'],
@@ -37,9 +38,29 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def delete
+    @product = Product.find(params[:id])
+    @product.transactions.each do |transaction|
+      transaction.destroy
+    end
+    if @product.destroy
+      redirect_to dashboard_path, notice: 'Product was successfully deleted.'
+    else
+      redirect_to dashboard_path, alert: 'Product could not be deleted.'
+    end
+  end
+
   def destroy
-    @product.destroy
-    redirect_to products_url, notice: 'Product was successfully destroyed.'
+    @product = Product.find(params[:id])
+    if @product.destroy
+      redirect_to dashboard_path, notice: 'Product was successfully destroyed.'
+    else
+      redirect_to dashboard_path, alert: 'Product could not be destroyed.'
+    end
+  end
+
+  def dashboard
+    @items = current_user.products
   end
 
   def new
